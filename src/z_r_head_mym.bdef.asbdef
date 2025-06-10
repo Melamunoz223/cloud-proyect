@@ -5,13 +5,15 @@ define behavior for z_r_head_mym //alias <alias_name>
 persistent table zheader_mym
 lock master
 authorization master ( instance )
-etag master Deliverydate
+//
+ etag master Deliverydate
 {
   create ( authorization : global );
-  update;
+  update ;
   delete;
   association _Items { create; }
-  field ( mandatory ) Id, email;
+  field ( mandatory: create) Id, email;
+  field (readonly : update ) Id;
 
   mapping for zheader_mym
     {
@@ -37,7 +39,7 @@ authorization dependent by _Head
   update;
   delete;
   association _Head;
-  field ( mandatory ) Id;
+  field ( mandatory: create, readonly : update ) Id;
   field ( readonly : update ) IdHeader;
 
   mapping for zitems_mym
