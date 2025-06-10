@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+@UI : { headerInfo: { typeName: 'Order',
+                      typeNamePlural: 'Orders',
+                      imageUrl: 'Imageurl',   //
+                       title: {
+                          type: #STANDARD,
+                          value: 'Id'} },
+        presentationVariant: [{ sortOrder: [{  by: 'Id',            //que se ordene por el Id de manera ordenada
+                                               direction: #DESC }], // ordesn descendente
+                                visualizations: [{ type: #AS_LINEITEM }] }] } //
+
+annotate entity z_c_head_mym
+    with 
+{
+  @UI.facet: [{ id: 'Orders',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Orders',
+                position: 10 },
+                
+                { id: 'Items',
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Items',
+                targetElement: '_Items',
+                position: 20 }]
+  @UI: { lineItem: [{ position: 10, label: 'ID',  //que salga en la tabla
+                      importance: #HIGH }],
+         identification: [{  position:  10, label: 'ID' }],  //que salga primeor en la navegación de detalle 
+        selectionField: [{  position: 10 }]   }      //filtro
+  Id;
+  
+  @UI: { lineItem: [{ position: 20, label: 'Email', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  20, label: 'Email' }]}
+  Email;
+  
+    @UI: { lineItem: [{ position: 30, label: 'Firstname', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  30, label: 'Firstname' }],  
+        selectionField: [{  position: 30 }]   }
+  Firstname;  
+  
+  @UI: { lineItem: [{ position: 40, label: 'Lastname', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  40, label: 'Lastname' }],  
+        selectionField: [{  position: 40 }]   }
+  Lastname;
+  
+  @UI: { lineItem: [{ position: 50, label: 'Country', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  50, label: 'Country' }],  
+        selectionField: [{  position: 50 }]   }
+  Country;
+  
+  @UI: { lineItem: [{ position: 60, label: 'Createon', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  60, label: 'Createon' }],  
+        selectionField: [{  position: 60 }]   }
+  Createon;
+  
+  @UI: { lineItem: [{ position: 70, label: 'Deliverydate', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  70, label: 'Deliverydate' }],  
+        selectionField: [{  position: 70 }]   }
+  Deliverydate;
+  
+  @UI: { lineItem: [{ position: 80, label: 'Orderestatus', 
+                      importance: #HIGH, criticality: 'Orderestatus' }],
+         identification: [{  position:  80, label: 'Orderestatus' }],  
+        selectionField: [{  position: 80 }]   }
+  Orderestatus;
+  
+  @UI: { lineItem: [{ position: 90, label: 'Imageurl', 
+                      importance: #MEDIUM }],
+         identification: [{  position:  90, label: 'Imageurl' }]  } 
+  Imageurl;
+    
+}

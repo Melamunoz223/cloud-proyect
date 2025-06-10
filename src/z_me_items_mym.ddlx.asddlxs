@@ -1,0 +1,64 @@
+@Metadata.layer: #CORE
+@UI : { headerInfo: { typeName: 'Item',
+                      typeNamePlural: 'Items',
+                       title: {
+                          type: #STANDARD,
+                          value: 'Id'} },
+        presentationVariant: [{ sortOrder: [{  by: 'Id',            //que se ordene por el Id de manera ordenada
+                                               direction: #DESC }], // ordesn descendente
+                                visualizations: [{ type: #AS_LINEITEM }] }] } //
+annotate entity Z_C_ITEMS_MYM with
+{
+  @UI.facet: [{ id: 'Id',                          //mostrar detalles de items en la navegación
+  purpose: #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Items' }]
+  @UI: { lineItem: [{ position: 10, label: 'ID',
+                    importance: #HIGH }],
+       identification: [{  position:  10, label: 'ID' }]}
+  Id;
+  @UI: { lineItem: [{ position: 20, label: 'IdHeader',
+                    importance: #MEDIUM }],
+       identification: [{  position:  20, label: 'IdHeader' }]}
+  IdHeader;
+  @UI: { lineItem: [{ position: 30, label: 'Description',
+                    importance: #MEDIUM }],
+       identification: [{  position:  30, label: 'Description' }]}
+  Description;
+  @UI: { lineItem: [{ position: 40, label: 'Releasedate',
+                    importance: #MEDIUM }],
+       identification: [{  position:  40, label: 'Releasedate' }]}
+  Releasedate;
+  @UI: { lineItem: [{ position: 50, label: 'Discontinuedate',
+                    importance: #MEDIUM }],
+       identification: [{  position:  50, label: 'Discontinuedate' }]}
+  Discontinuedate;
+  @UI: { lineItem: [{ position: 60, label: 'Price',
+                    importance: #MEDIUM }],
+       identification: [{  position:  60, label: 'Price' }]}
+  Price;
+  @UI: { lineItem: [{ position: 70, label: 'CurrencyCode',
+                    importance: #MEDIUM }],
+       identification: [{  position:  70, label: 'CurrencyCode' }]}
+  CurrencyCode;
+  @UI: { lineItem: [{ position: 80, label: 'Height',
+                    importance: #MEDIUM }],
+       identification: [{  position:  80, label: 'Height' }]}
+  Height;
+  @UI: { lineItem: [{ position: 90, label: 'Width',
+                    importance: #MEDIUM }],
+       identification: [{  position:  90, label: 'Width' }]}
+  Width;
+  @UI: { lineItem: [{ position: 100, label: 'Depth',
+                    importance: #MEDIUM }],
+       identification: [{  position:  100, label: 'Depth' }]}
+  Depth;
+  @UI: { lineItem: [{ position: 110, label: 'Quantity',
+                    importance: #MEDIUM }],
+       identification: [{  position:  110, label: 'Quantity' }]}
+  Quantity;
+  @UI: { lineItem: [{ position: 120, label: 'Unitofmeasure',
+                    importance: #MEDIUM }],
+       identification: [{  position:  120, label: 'Unitofmeasure' }]}
+  Unitofmeasure;
+}

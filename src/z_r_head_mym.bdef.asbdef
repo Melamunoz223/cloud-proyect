@@ -1,0 +1,60 @@
+managed implementation in class zbp_r_head_mym unique;
+strict ( 2 );
+
+define behavior for z_r_head_mym //alias <alias_name>
+persistent table zheader_mym
+lock master
+authorization master ( instance )
+etag master Deliverydate
+{
+  create ( authorization : global );
+  update;
+  delete;
+  association _Items { create; }
+  field ( mandatory ) Id, email;
+
+  mapping for zheader_mym
+    {
+      Id           = id;
+      Email        = email;
+      Firstname    = firstname;
+      Lastname     = lastname;
+      Country      = country;
+      Createon     = createon;
+      Deliverydate = deliverydate;
+      Orderestatus = orderestatus;
+      Imageurl     = imageurl;
+    }
+
+}
+
+define behavior for z_r_items_mym //alias <alias_name>
+persistent table zitems_mym
+lock dependent by _Head
+authorization dependent by _Head
+//etag master <field_name>
+{
+  update;
+  delete;
+  association _Head;
+  field ( mandatory ) Id;
+  field ( readonly : update ) IdHeader;
+
+  mapping for zitems_mym
+    {
+      Id              = id;
+      IdHeader        = id_header;
+      Name            = name;
+      Description     = description;
+      Releasedate     = releasedate;
+      Discontinuedate = discontinuedate;
+      Price           = price;
+      CurrencyCode    = currency_code;
+      Height          = height;
+      Width           = width;
+      Depth           = depth;
+      Quantity        = quantity;
+      Unitofmeasure   = unitofmeasure;
+    }
+
+}

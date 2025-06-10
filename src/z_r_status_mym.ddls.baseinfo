@@ -3,13 +3,10 @@
 {
 "FROM":
 [
-"ZHEADER_MYM"
+"ZSTATUS_MYM"
 ],
 "ASSOCIATED":
-[
-"Z_R_ITEMS_MYM",
-"Z_R_STATUS_MYM"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

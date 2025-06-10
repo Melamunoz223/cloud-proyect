@@ -1,0 +1,5 @@
+@EndUserText.label: 'SERVICES DEFINITION'
+define service Z_SD_HEAD_MYM {
+  expose z_c_head_mym;
+  expose Z_C_ITEMS_MYM;
+}
